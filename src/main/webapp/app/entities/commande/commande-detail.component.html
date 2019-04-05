@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="commande">
+            <h2><span jhiTranslate="kouponApp.commande.detail.title">Commande</span> {{commande.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="kouponApp.commande.refCommande">Ref Commande</span></dt>
+                <dd>
+                    <span>{{commande.refCommande}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.commande.dateCommande">Date Commande</span></dt>
+                <dd>
+                    <span>{{commande.dateCommande}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.commande.membre">Membre</span></dt>
+                <dd>
+                    <div *ngIf="commande.membre">
+                        <a [routerLink]="['/membre', commande.membre?.id, 'view']">{{commande.membre?.loginMember}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/commande', commande.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

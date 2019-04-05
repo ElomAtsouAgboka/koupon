@@ -1,0 +1,173 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="deal">
+            <h2><span jhiTranslate="kouponApp.deal.detail.title">Deal</span> {{deal.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="kouponApp.deal.refDeal">Ref Deal</span></dt>
+                <dd>
+                    <span>{{deal.refDeal}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.titreDeal">Titre Deal</span></dt>
+                <dd>
+                    <span>{{deal.titreDeal}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.descriptionDeal">Description Deal</span></dt>
+                <dd>
+                    <span>{{deal.descriptionDeal}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.prixReduitDeal">Prix Reduit Deal</span></dt>
+                <dd>
+                    <span>{{deal.prixReduitDeal}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.prixNormalDeal">Prix Normal Deal</span></dt>
+                <dd>
+                    <span>{{deal.prixNormalDeal}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.pcReductionDeal">Pc Reduction Deal</span></dt>
+                <dd>
+                    <span>{{deal.pcReductionDeal}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoDealUn">Photo Deal Un</span></dt>
+                <dd>
+                    <span>{{deal.photoDealUn}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoDealDeux">Photo Deal Deux</span></dt>
+                <dd>
+                    <span>{{deal.photoDealDeux}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoDealTrois">Photo Deal Trois</span></dt>
+                <dd>
+                    <span>{{deal.photoDealTrois}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoDealQuatre">Photo Deal Quatre</span></dt>
+                <dd>
+                    <span>{{deal.photoDealQuatre}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoDealCinq">Photo Deal Cinq</span></dt>
+                <dd>
+                    <span>{{deal.photoDealCinq}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoDealSix">Photo Deal Six</span></dt>
+                <dd>
+                    <span>{{deal.photoDealSix}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoDealSpet">Photo Deal Spet</span></dt>
+                <dd>
+                    <span>{{deal.photoDealSpet}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoDealHuit">Photo Deal Huit</span></dt>
+                <dd>
+                    <span>{{deal.photoDealHuit}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoDealNeuf">Photo Deal Neuf</span></dt>
+                <dd>
+                    <span>{{deal.photoDealNeuf}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoDealDix">Photo Deal Dix</span></dt>
+                <dd>
+                    <span>{{deal.photoDealDix}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoMinDealUn">Photo Min Deal Un</span></dt>
+                <dd>
+                    <span>{{deal.photoMinDealUn}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoMinDealDeux">Photo Min Deal Deux</span></dt>
+                <dd>
+                    <span>{{deal.photoMinDealDeux}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoMinDealTrois">Photo Min Deal Trois</span></dt>
+                <dd>
+                    <span>{{deal.photoMinDealTrois}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoMinDealQuatre">Photo Min Deal Quatre</span></dt>
+                <dd>
+                    <span>{{deal.photoMinDealQuatre}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoMinDealCinq">Photo Min Deal Cinq</span></dt>
+                <dd>
+                    <span>{{deal.photoMinDealCinq}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoMinDealSix">Photo Min Deal Six</span></dt>
+                <dd>
+                    <span>{{deal.photoMinDealSix}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoMinDealSpet">Photo Min Deal Spet</span></dt>
+                <dd>
+                    <span>{{deal.photoMinDealSpet}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoMinDealHuit">Photo Min Deal Huit</span></dt>
+                <dd>
+                    <span>{{deal.photoMinDealHuit}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoMinDealNeuf">Photo Min Deal Neuf</span></dt>
+                <dd>
+                    <span>{{deal.photoMinDealNeuf}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.photoMinDealDix">Photo Min Deal Dix</span></dt>
+                <dd>
+                    <span>{{deal.photoMinDealDix}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.descPointFortDeal">Desc Point Fort Deal</span></dt>
+                <dd>
+                    <span>{{deal.descPointFortDeal}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.detailsOffreDeal">Details Offre Deal</span></dt>
+                <dd>
+                    <span>{{deal.detailsOffreDeal}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.conditionsDeal">Conditions Deal</span></dt>
+                <dd>
+                    <span>{{deal.conditionsDeal}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.estLimite">Est Limite</span></dt>
+                <dd>
+                    <span>{{deal.estLimite}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.estEpuise">Est Epuise</span></dt>
+                <dd>
+                    <span>{{deal.estEpuise}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.dateCreationDeal">Date Creation Deal</span></dt>
+                <dd>
+                    <span>{{deal.dateCreationDeal}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.dateClotureDeal">Date Cloture Deal</span></dt>
+                <dd>
+                    <span>{{deal.dateClotureDeal}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.menu">Menu</span></dt>
+                <dd>
+                    <span *ngFor="let menu of deal.menus; let last = last">
+                        <a [routerLink]="['/menu', menu?.id, 'view' ]">{{menu.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.categorie">Categorie</span></dt>
+                <dd>
+                    <span *ngFor="let categorie of deal.categories; let last = last">
+                        <a [routerLink]="['/categorie', categorie?.id, 'view' ]">{{categorie.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.deal.commerce">Commerce</span></dt>
+                <dd>
+                    <div *ngIf="deal.commerce">
+                        <a [routerLink]="['/commerce', deal.commerce?.id, 'view']">{{deal.commerce?.nomCommerce}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/deal', deal.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

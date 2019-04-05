@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="coupon">
+            <h2><span jhiTranslate="kouponApp.coupon.detail.title">Coupon</span> {{coupon.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="kouponApp.coupon.refCoupon">Ref Coupon</span></dt>
+                <dd>
+                    <span>{{coupon.refCoupon}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.coupon.dateAchat">Date Achat</span></dt>
+                <dd>
+                    <span>{{coupon.dateAchat}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.coupon.dateUtilisation">Date Utilisation</span></dt>
+                <dd>
+                    <span>{{coupon.dateUtilisation}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.coupon.estCadeaux">Est Cadeaux</span></dt>
+                <dd>
+                    <span>{{coupon.estCadeaux}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.coupon.deal">Deal</span></dt>
+                <dd>
+                    <div *ngIf="coupon.deal">
+                        <a [routerLink]="['/deal', coupon.deal?.id, 'view']">{{coupon.deal?.refDeal}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.coupon.commande">Commande</span></dt>
+                <dd>
+                    <div *ngIf="coupon.commande">
+                        <a [routerLink]="['/commande', coupon.commande?.id, 'view']">{{coupon.commande?.refCommande}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/coupon', coupon.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

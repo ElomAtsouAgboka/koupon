@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-option-deal-heading" jhiTranslate="kouponApp.optionDeal.home.createOrEditLabel">Create or edit a Option Deal</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!optionDeal.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="optionDeal.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.optionDeal.libOptionDeal" for="field_libOptionDeal">Lib Option Deal</label>
+                    <input type="text" class="form-control" name="libOptionDeal" id="field_libOptionDeal"
+                        [(ngModel)]="optionDeal.libOptionDeal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.optionDeal.prixNormalOptionDeal" for="field_prixNormalOptionDeal">Prix Normal Option Deal</label>
+                    <input type="number" class="form-control" name="prixNormalOptionDeal" id="field_prixNormalOptionDeal"
+                        [(ngModel)]="optionDeal.prixNormalOptionDeal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.optionDeal.prixReductionOptionBonPlan" for="field_prixReductionOptionBonPlan">Prix Reduction Option Bon Plan</label>
+                    <input type="number" class="form-control" name="prixReductionOptionBonPlan" id="field_prixReductionOptionBonPlan"
+                        [(ngModel)]="optionDeal.prixReductionOptionBonPlan" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.optionDeal.pcReductionOptionBonPlan" for="field_pcReductionOptionBonPlan">Pc Reduction Option Bon Plan</label>
+                    <input type="number" class="form-control" name="pcReductionOptionBonPlan" id="field_pcReductionOptionBonPlan"
+                        [(ngModel)]="optionDeal.pcReductionOptionBonPlan" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.optionDeal.deal" for="field_deal">Deal</label>
+                    <select class="form-control" id="field_deal" name="deal" [(ngModel)]="optionDeal.deal" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="dealOption.id === optionDeal.deal?.id ? optionDeal.deal : dealOption" *ngFor="let dealOption of deals; trackBy: trackDealById">{{dealOption.refDeal}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

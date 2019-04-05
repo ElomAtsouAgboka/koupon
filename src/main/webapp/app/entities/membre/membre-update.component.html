@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-membre-heading" jhiTranslate="kouponApp.membre.home.createOrEditLabel">Create or edit a Membre</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!membre.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="membre.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.membre.loginMember" for="field_loginMember">Login Member</label>
+                    <input type="text" class="form-control" name="loginMember" id="field_loginMember"
+                        [(ngModel)]="membre.loginMember" required maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.loginMember?.dirty && editForm.controls.loginMember?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.loginMember?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.loginMember?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.membre.nomMembre" for="field_nomMembre">Nom Membre</label>
+                    <input type="text" class="form-control" name="nomMembre" id="field_nomMembre"
+                        [(ngModel)]="membre.nomMembre" required maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.nomMembre?.dirty && editForm.controls.nomMembre?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nomMembre?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nomMembre?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.membre.prenomMembre" for="field_prenomMembre">Prenom Membre</label>
+                    <input type="text" class="form-control" name="prenomMembre" id="field_prenomMembre"
+                        [(ngModel)]="membre.prenomMembre" maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.prenomMembre?.dirty && editForm.controls.prenomMembre?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.prenomMembre?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.membre.dateDeNaissance" for="field_dateDeNaissance">Date De Naissance</label>
+                    <div class="input-group">
+                        <input id="field_dateDeNaissance" type="text" class="form-control" name="dateDeNaissance" ngbDatepicker  #dateDeNaissanceDp="ngbDatepicker" [(ngModel)]="membre.dateDeNaissance"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDeNaissanceDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.membre.emailMembre" for="field_emailMembre">Email Membre</label>
+                    <input type="text" class="form-control" name="emailMembre" id="field_emailMembre"
+                        [(ngModel)]="membre.emailMembre" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.membre.souscrireMailPerso" for="field_souscrireMailPerso">Souscrire Mail Perso</label>
+                    <input type="checkbox" class="form-control" name="souscrireMailPerso" id="field_souscrireMailPerso"
+                        [(ngModel)]="membre.souscrireMailPerso" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

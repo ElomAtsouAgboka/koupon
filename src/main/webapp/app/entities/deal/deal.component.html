@@ -1,0 +1,139 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="kouponApp.deal.home.title">Deals</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-deal" [routerLink]="['/deal/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="kouponApp.deal.home.createLabel">
+            Create new Deal
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'kouponApp.deal.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="deals">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="refDeal"><span jhiTranslate="kouponApp.deal.refDeal">Ref Deal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="titreDeal"><span jhiTranslate="kouponApp.deal.titreDeal">Titre Deal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="descriptionDeal"><span jhiTranslate="kouponApp.deal.descriptionDeal">Description Deal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="prixReduitDeal"><span jhiTranslate="kouponApp.deal.prixReduitDeal">Prix Reduit Deal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="prixNormalDeal"><span jhiTranslate="kouponApp.deal.prixNormalDeal">Prix Normal Deal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="pcReductionDeal"><span jhiTranslate="kouponApp.deal.pcReductionDeal">Pc Reduction Deal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoDealUn"><span jhiTranslate="kouponApp.deal.photoDealUn">Photo Deal Un</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoDealDeux"><span jhiTranslate="kouponApp.deal.photoDealDeux">Photo Deal Deux</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoDealTrois"><span jhiTranslate="kouponApp.deal.photoDealTrois">Photo Deal Trois</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoDealQuatre"><span jhiTranslate="kouponApp.deal.photoDealQuatre">Photo Deal Quatre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoDealCinq"><span jhiTranslate="kouponApp.deal.photoDealCinq">Photo Deal Cinq</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoDealSix"><span jhiTranslate="kouponApp.deal.photoDealSix">Photo Deal Six</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoDealSpet"><span jhiTranslate="kouponApp.deal.photoDealSpet">Photo Deal Spet</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoDealHuit"><span jhiTranslate="kouponApp.deal.photoDealHuit">Photo Deal Huit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoDealNeuf"><span jhiTranslate="kouponApp.deal.photoDealNeuf">Photo Deal Neuf</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoDealDix"><span jhiTranslate="kouponApp.deal.photoDealDix">Photo Deal Dix</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoMinDealUn"><span jhiTranslate="kouponApp.deal.photoMinDealUn">Photo Min Deal Un</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoMinDealDeux"><span jhiTranslate="kouponApp.deal.photoMinDealDeux">Photo Min Deal Deux</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoMinDealTrois"><span jhiTranslate="kouponApp.deal.photoMinDealTrois">Photo Min Deal Trois</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoMinDealQuatre"><span jhiTranslate="kouponApp.deal.photoMinDealQuatre">Photo Min Deal Quatre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoMinDealCinq"><span jhiTranslate="kouponApp.deal.photoMinDealCinq">Photo Min Deal Cinq</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoMinDealSix"><span jhiTranslate="kouponApp.deal.photoMinDealSix">Photo Min Deal Six</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoMinDealSpet"><span jhiTranslate="kouponApp.deal.photoMinDealSpet">Photo Min Deal Spet</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoMinDealHuit"><span jhiTranslate="kouponApp.deal.photoMinDealHuit">Photo Min Deal Huit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoMinDealNeuf"><span jhiTranslate="kouponApp.deal.photoMinDealNeuf">Photo Min Deal Neuf</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="photoMinDealDix"><span jhiTranslate="kouponApp.deal.photoMinDealDix">Photo Min Deal Dix</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="descPointFortDeal"><span jhiTranslate="kouponApp.deal.descPointFortDeal">Desc Point Fort Deal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="detailsOffreDeal"><span jhiTranslate="kouponApp.deal.detailsOffreDeal">Details Offre Deal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="conditionsDeal"><span jhiTranslate="kouponApp.deal.conditionsDeal">Conditions Deal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="estLimite"><span jhiTranslate="kouponApp.deal.estLimite">Est Limite</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="estEpuise"><span jhiTranslate="kouponApp.deal.estEpuise">Est Epuise</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateCreationDeal"><span jhiTranslate="kouponApp.deal.dateCreationDeal">Date Creation Deal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateClotureDeal"><span jhiTranslate="kouponApp.deal.dateClotureDeal">Date Cloture Deal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="commerce.nomCommerce"><span jhiTranslate="kouponApp.deal.commerce">Commerce</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let deal of deals ;trackBy: trackId">
+                <td><a [routerLink]="['/deal', deal.id, 'view' ]">{{deal.id}}</a></td>
+                <td>{{deal.refDeal}}</td>
+                <td>{{deal.titreDeal}}</td>
+                <td>{{deal.descriptionDeal}}</td>
+                <td>{{deal.prixReduitDeal}}</td>
+                <td>{{deal.prixNormalDeal}}</td>
+                <td>{{deal.pcReductionDeal}}</td>
+                <td>{{deal.photoDealUn}}</td>
+                <td>{{deal.photoDealDeux}}</td>
+                <td>{{deal.photoDealTrois}}</td>
+                <td>{{deal.photoDealQuatre}}</td>
+                <td>{{deal.photoDealCinq}}</td>
+                <td>{{deal.photoDealSix}}</td>
+                <td>{{deal.photoDealSpet}}</td>
+                <td>{{deal.photoDealHuit}}</td>
+                <td>{{deal.photoDealNeuf}}</td>
+                <td>{{deal.photoDealDix}}</td>
+                <td>{{deal.photoMinDealUn}}</td>
+                <td>{{deal.photoMinDealDeux}}</td>
+                <td>{{deal.photoMinDealTrois}}</td>
+                <td>{{deal.photoMinDealQuatre}}</td>
+                <td>{{deal.photoMinDealCinq}}</td>
+                <td>{{deal.photoMinDealSix}}</td>
+                <td>{{deal.photoMinDealSpet}}</td>
+                <td>{{deal.photoMinDealHuit}}</td>
+                <td>{{deal.photoMinDealNeuf}}</td>
+                <td>{{deal.photoMinDealDix}}</td>
+                <td>{{deal.descPointFortDeal}}</td>
+                <td>{{deal.detailsOffreDeal}}</td>
+                <td>{{deal.conditionsDeal}}</td>
+                <td>{{deal.estLimite}}</td>
+                <td>{{deal.estEpuise}}</td>
+                <td>{{deal.dateCreationDeal | date:'mediumDate'}}</td>
+                <td>{{deal.dateClotureDeal | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="deal.commerce">
+                        <a [routerLink]="['../commerce', deal.commerce?.id, 'view' ]" >{{deal.commerce?.nomCommerce}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/deal', deal.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/deal', deal.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'deal', { outlets: { popup: deal.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

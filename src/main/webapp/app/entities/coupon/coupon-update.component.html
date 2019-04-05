@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-coupon-heading" jhiTranslate="kouponApp.coupon.home.createOrEditLabel">Create or edit a Coupon</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!coupon.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="coupon.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.coupon.refCoupon" for="field_refCoupon">Ref Coupon</label>
+                    <input type="text" class="form-control" name="refCoupon" id="field_refCoupon"
+                        [(ngModel)]="coupon.refCoupon" required maxlength="10"/>
+                    <div [hidden]="!(editForm.controls.refCoupon?.dirty && editForm.controls.refCoupon?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.refCoupon?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.refCoupon?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 10 }">
+                        This field cannot be longer than 10 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.coupon.dateAchat" for="field_dateAchat">Date Achat</label>
+                    <input type="text" class="form-control" name="dateAchat" id="field_dateAchat"
+                        [(ngModel)]="coupon.dateAchat" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.coupon.dateUtilisation" for="field_dateUtilisation">Date Utilisation</label>
+                    <input type="text" class="form-control" name="dateUtilisation" id="field_dateUtilisation"
+                        [(ngModel)]="coupon.dateUtilisation" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.coupon.estCadeaux" for="field_estCadeaux">Est Cadeaux</label>
+                    <input type="checkbox" class="form-control" name="estCadeaux" id="field_estCadeaux"
+                        [(ngModel)]="coupon.estCadeaux" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.coupon.deal" for="field_deal">Deal</label>
+                    <select class="form-control" id="field_deal" name="deal" [(ngModel)]="coupon.deal" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="dealOption.id === coupon.deal?.id ? coupon.deal : dealOption" *ngFor="let dealOption of deals; trackBy: trackDealById">{{dealOption.refDeal}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.coupon.commande" for="field_commande">Commande</label>
+                    <select class="form-control" id="field_commande" name="commande" [(ngModel)]="coupon.commande" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="commandeOption.id === coupon.commande?.id ? coupon.commande : commandeOption" *ngFor="let commandeOption of commandes; trackBy: trackCommandeById">{{commandeOption.refCommande}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -7,6 +7,20 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entities",
+                "pays": "Pays",
+                "ville": "Ville",
+                "quartier": "Quartier",
+                "categorie": "Categorie",
+                "menu": "Menu",
+                "typeDeCommerce": "Type De Commerce",
+                "commerce": "Commerce",
+                "marchand": "Marchand",
+                "deal": "Deal",
+                "optionDeal": "Option Deal",
+                "coupon": "Coupon",
+                "avis": "Avis",
+                "membre": "Membre",
+                "commande": "Commande",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,39 @@
+{
+    "name": "OptionDeal",
+    "fields": [
+        {
+            "fieldName": "libOptionDeal",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prixNormalOptionDeal",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "prixReductionOptionBonPlan",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "pcReductionOptionBonPlan",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "deal",
+            "otherEntityRelationshipName": "optiondeal",
+            "relationshipName": "deal",
+            "otherEntityField": "refDeal"
+        }
+    ],
+    "changelogDate": "20190405201347",
+    "entityTableName": "option_deal",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

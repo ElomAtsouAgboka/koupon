@@ -1,0 +1,23 @@
+{
+    "kouponApp": {
+        "typeDeCommerce": {
+            "home": {
+                "title": "Type De Commerces",
+                "createLabel": "Create a new Type De Commerce",
+                "createOrEditLabel": "Create or edit a Type De Commerce",
+                "search": "Search for Type De Commerce"
+            },
+            "created": "A new Type De Commerce is created with identifier {{ param }}",
+            "updated": "A Type De Commerce is updated with identifier {{ param }}",
+            "deleted": "A Type De Commerce is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Type De Commerce {{ id }}?"
+            },
+            "detail": {
+                "title": "Type De Commerce"
+            },
+            "nomTypeDeCommerce": "Nom Type De Commerce",
+            "commerce": "Commerce"
+        }
+    }
+}

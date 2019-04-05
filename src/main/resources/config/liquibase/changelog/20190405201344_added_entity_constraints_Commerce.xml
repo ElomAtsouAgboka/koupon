@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Commerce.
+    -->
+    <changeSet id="20190405201344-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="typedecommerce_id"
+                                 baseTableName="commerce"
+                                 constraintName="fk_commerce_typedecommerce_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_de_commerce"/>
+
+        <addForeignKeyConstraint baseColumnNames="marchand_id"
+                                 baseTableName="commerce"
+                                 constraintName="fk_commerce_marchand_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="marchand"/>
+
+    </changeSet>
+</databaseChangeLog>

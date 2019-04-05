@@ -1,0 +1,23 @@
+{
+    "kouponApp": {
+        "typeDeCommerce": {
+            "home": {
+                "title": "TypeDeCommerces",
+                "createLabel": "Créer un nouveau Type De Commerce",
+                "createOrEditLabel": "Créer ou éditer un Type De Commerce",
+                "search": "Recherche pour Type De Commerce"
+            },
+            "created": "Un nouveau Type De Commerce a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Type De Commerce avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Type De Commerce avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Type De Commerce {{ id }} ?"
+            },
+            "detail": {
+                "title": "Type De Commerce"
+            },
+            "nomTypeDeCommerce": "Nom Type De Commerce",
+            "commerce": "Commerce"
+        }
+    }
+}

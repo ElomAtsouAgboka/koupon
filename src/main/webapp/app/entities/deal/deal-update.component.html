@@ -1,0 +1,310 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-deal-heading" jhiTranslate="kouponApp.deal.home.createOrEditLabel">Create or edit a Deal</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!deal.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="deal.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.refDeal" for="field_refDeal">Ref Deal</label>
+                    <input type="text" class="form-control" name="refDeal" id="field_refDeal"
+                        [(ngModel)]="deal.refDeal" required maxlength="10"/>
+                    <div [hidden]="!(editForm.controls.refDeal?.dirty && editForm.controls.refDeal?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.refDeal?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.refDeal?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 10 }">
+                        This field cannot be longer than 10 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.titreDeal" for="field_titreDeal">Titre Deal</label>
+                    <input type="text" class="form-control" name="titreDeal" id="field_titreDeal"
+                        [(ngModel)]="deal.titreDeal" required maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.titreDeal?.dirty && editForm.controls.titreDeal?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.titreDeal?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.titreDeal?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.descriptionDeal" for="field_descriptionDeal">Description Deal</label>
+                    <input type="text" class="form-control" name="descriptionDeal" id="field_descriptionDeal"
+                        [(ngModel)]="deal.descriptionDeal" required maxlength="255"/>
+                    <div [hidden]="!(editForm.controls.descriptionDeal?.dirty && editForm.controls.descriptionDeal?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.descriptionDeal?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.descriptionDeal?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.prixReduitDeal" for="field_prixReduitDeal">Prix Reduit Deal</label>
+                    <input type="text" class="form-control" name="prixReduitDeal" id="field_prixReduitDeal"
+                        [(ngModel)]="deal.prixReduitDeal" required/>
+                    <div [hidden]="!(editForm.controls.prixReduitDeal?.dirty && editForm.controls.prixReduitDeal?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.prixReduitDeal?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.prixNormalDeal" for="field_prixNormalDeal">Prix Normal Deal</label>
+                    <input type="number" class="form-control" name="prixNormalDeal" id="field_prixNormalDeal"
+                        [(ngModel)]="deal.prixNormalDeal" required/>
+                    <div [hidden]="!(editForm.controls.prixNormalDeal?.dirty && editForm.controls.prixNormalDeal?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.prixNormalDeal?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.prixNormalDeal?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.pcReductionDeal" for="field_pcReductionDeal">Pc Reduction Deal</label>
+                    <input type="number" class="form-control" name="pcReductionDeal" id="field_pcReductionDeal"
+                        [(ngModel)]="deal.pcReductionDeal" required/>
+                    <div [hidden]="!(editForm.controls.pcReductionDeal?.dirty && editForm.controls.pcReductionDeal?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.pcReductionDeal?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.pcReductionDeal?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoDealUn" for="field_photoDealUn">Photo Deal Un</label>
+                    <input type="text" class="form-control" name="photoDealUn" id="field_photoDealUn"
+                        [(ngModel)]="deal.photoDealUn" required/>
+                    <div [hidden]="!(editForm.controls.photoDealUn?.dirty && editForm.controls.photoDealUn?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.photoDealUn?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoDealDeux" for="field_photoDealDeux">Photo Deal Deux</label>
+                    <input type="text" class="form-control" name="photoDealDeux" id="field_photoDealDeux"
+                        [(ngModel)]="deal.photoDealDeux" required/>
+                    <div [hidden]="!(editForm.controls.photoDealDeux?.dirty && editForm.controls.photoDealDeux?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.photoDealDeux?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoDealTrois" for="field_photoDealTrois">Photo Deal Trois</label>
+                    <input type="text" class="form-control" name="photoDealTrois" id="field_photoDealTrois"
+                        [(ngModel)]="deal.photoDealTrois" required/>
+                    <div [hidden]="!(editForm.controls.photoDealTrois?.dirty && editForm.controls.photoDealTrois?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.photoDealTrois?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoDealQuatre" for="field_photoDealQuatre">Photo Deal Quatre</label>
+                    <input type="text" class="form-control" name="photoDealQuatre" id="field_photoDealQuatre"
+                        [(ngModel)]="deal.photoDealQuatre" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoDealCinq" for="field_photoDealCinq">Photo Deal Cinq</label>
+                    <input type="text" class="form-control" name="photoDealCinq" id="field_photoDealCinq"
+                        [(ngModel)]="deal.photoDealCinq" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoDealSix" for="field_photoDealSix">Photo Deal Six</label>
+                    <input type="text" class="form-control" name="photoDealSix" id="field_photoDealSix"
+                        [(ngModel)]="deal.photoDealSix" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoDealSpet" for="field_photoDealSpet">Photo Deal Spet</label>
+                    <input type="text" class="form-control" name="photoDealSpet" id="field_photoDealSpet"
+                        [(ngModel)]="deal.photoDealSpet" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoDealHuit" for="field_photoDealHuit">Photo Deal Huit</label>
+                    <input type="text" class="form-control" name="photoDealHuit" id="field_photoDealHuit"
+                        [(ngModel)]="deal.photoDealHuit" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoDealNeuf" for="field_photoDealNeuf">Photo Deal Neuf</label>
+                    <input type="text" class="form-control" name="photoDealNeuf" id="field_photoDealNeuf"
+                        [(ngModel)]="deal.photoDealNeuf" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoDealDix" for="field_photoDealDix">Photo Deal Dix</label>
+                    <input type="text" class="form-control" name="photoDealDix" id="field_photoDealDix"
+                        [(ngModel)]="deal.photoDealDix" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoMinDealUn" for="field_photoMinDealUn">Photo Min Deal Un</label>
+                    <input type="text" class="form-control" name="photoMinDealUn" id="field_photoMinDealUn"
+                        [(ngModel)]="deal.photoMinDealUn" required/>
+                    <div [hidden]="!(editForm.controls.photoMinDealUn?.dirty && editForm.controls.photoMinDealUn?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.photoMinDealUn?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoMinDealDeux" for="field_photoMinDealDeux">Photo Min Deal Deux</label>
+                    <input type="text" class="form-control" name="photoMinDealDeux" id="field_photoMinDealDeux"
+                        [(ngModel)]="deal.photoMinDealDeux" required/>
+                    <div [hidden]="!(editForm.controls.photoMinDealDeux?.dirty && editForm.controls.photoMinDealDeux?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.photoMinDealDeux?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoMinDealTrois" for="field_photoMinDealTrois">Photo Min Deal Trois</label>
+                    <input type="text" class="form-control" name="photoMinDealTrois" id="field_photoMinDealTrois"
+                        [(ngModel)]="deal.photoMinDealTrois" required/>
+                    <div [hidden]="!(editForm.controls.photoMinDealTrois?.dirty && editForm.controls.photoMinDealTrois?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.photoMinDealTrois?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoMinDealQuatre" for="field_photoMinDealQuatre">Photo Min Deal Quatre</label>
+                    <input type="text" class="form-control" name="photoMinDealQuatre" id="field_photoMinDealQuatre"
+                        [(ngModel)]="deal.photoMinDealQuatre" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoMinDealCinq" for="field_photoMinDealCinq">Photo Min Deal Cinq</label>
+                    <input type="text" class="form-control" name="photoMinDealCinq" id="field_photoMinDealCinq"
+                        [(ngModel)]="deal.photoMinDealCinq" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoMinDealSix" for="field_photoMinDealSix">Photo Min Deal Six</label>
+                    <input type="text" class="form-control" name="photoMinDealSix" id="field_photoMinDealSix"
+                        [(ngModel)]="deal.photoMinDealSix" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoMinDealSpet" for="field_photoMinDealSpet">Photo Min Deal Spet</label>
+                    <input type="text" class="form-control" name="photoMinDealSpet" id="field_photoMinDealSpet"
+                        [(ngModel)]="deal.photoMinDealSpet" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoMinDealHuit" for="field_photoMinDealHuit">Photo Min Deal Huit</label>
+                    <input type="text" class="form-control" name="photoMinDealHuit" id="field_photoMinDealHuit"
+                        [(ngModel)]="deal.photoMinDealHuit" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoMinDealNeuf" for="field_photoMinDealNeuf">Photo Min Deal Neuf</label>
+                    <input type="text" class="form-control" name="photoMinDealNeuf" id="field_photoMinDealNeuf"
+                        [(ngModel)]="deal.photoMinDealNeuf" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.photoMinDealDix" for="field_photoMinDealDix">Photo Min Deal Dix</label>
+                    <input type="text" class="form-control" name="photoMinDealDix" id="field_photoMinDealDix"
+                        [(ngModel)]="deal.photoMinDealDix" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.descPointFortDeal" for="field_descPointFortDeal">Desc Point Fort Deal</label>
+                    <input type="text" class="form-control" name="descPointFortDeal" id="field_descPointFortDeal"
+                        [(ngModel)]="deal.descPointFortDeal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.detailsOffreDeal" for="field_detailsOffreDeal">Details Offre Deal</label>
+                    <input type="text" class="form-control" name="detailsOffreDeal" id="field_detailsOffreDeal"
+                        [(ngModel)]="deal.detailsOffreDeal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.conditionsDeal" for="field_conditionsDeal">Conditions Deal</label>
+                    <input type="text" class="form-control" name="conditionsDeal" id="field_conditionsDeal"
+                        [(ngModel)]="deal.conditionsDeal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.estLimite" for="field_estLimite">Est Limite</label>
+                    <input type="checkbox" class="form-control" name="estLimite" id="field_estLimite"
+                        [(ngModel)]="deal.estLimite" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.estEpuise" for="field_estEpuise">Est Epuise</label>
+                    <input type="checkbox" class="form-control" name="estEpuise" id="field_estEpuise"
+                        [(ngModel)]="deal.estEpuise" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.dateCreationDeal" for="field_dateCreationDeal">Date Creation Deal</label>
+                    <div class="input-group">
+                        <input id="field_dateCreationDeal" type="text" class="form-control" name="dateCreationDeal" ngbDatepicker  #dateCreationDealDp="ngbDatepicker" [(ngModel)]="deal.dateCreationDeal"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateCreationDealDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.dateClotureDeal" for="field_dateClotureDeal">Date Cloture Deal</label>
+                    <div class="input-group">
+                        <input id="field_dateClotureDeal" type="text" class="form-control" name="dateClotureDeal" ngbDatepicker  #dateClotureDealDp="ngbDatepicker" [(ngModel)]="deal.dateClotureDeal"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateClotureDealDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="kouponApp.deal.menu" for="field_menu">Menu</label>
+                    <select class="form-control" id="field_menu" multiple name="menu" [(ngModel)]="deal.menus">
+                        <option [ngValue]="getSelected(deal.menus, menuOption)" *ngFor="let menuOption of menus; trackBy: trackMenuById">{{menuOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="kouponApp.deal.categorie" for="field_categorie">Categorie</label>
+                    <select class="form-control" id="field_categorie" multiple name="categorie" [(ngModel)]="deal.categories">
+                        <option [ngValue]="getSelected(deal.categories, categorieOption)" *ngFor="let categorieOption of categories; trackBy: trackCategorieById">{{categorieOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.deal.commerce" for="field_commerce">Commerce</label>
+                    <select class="form-control" id="field_commerce" name="commerce" [(ngModel)]="deal.commerce" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="commerceOption.id === deal.commerce?.id ? deal.commerce : commerceOption" *ngFor="let commerceOption of commerce; trackBy: trackCommerceById">{{commerceOption.nomCommerce}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

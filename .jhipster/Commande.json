@@ -1,0 +1,43 @@
+{
+    "name": "Commande",
+    "fields": [
+        {
+            "fieldName": "refCommande",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength",
+                "unique"
+            ],
+            "fieldValidateRulesMaxlength": 10
+        },
+        {
+            "fieldName": "dateCommande",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "coupon",
+            "otherEntityRelationshipName": "commande",
+            "relationshipName": "coupon"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "membre",
+            "otherEntityRelationshipName": "commande",
+            "relationshipName": "membre",
+            "otherEntityField": "loginMember"
+        }
+    ],
+    "changelogDate": "20190405201351",
+    "entityTableName": "commande",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

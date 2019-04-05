@@ -1,0 +1,32 @@
+{
+    "name": "Pays",
+    "fields": [
+        {
+            "fieldName": "nomPays",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength",
+                "unique"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ville",
+            "otherEntityRelationshipName": "pays",
+            "relationshipName": "ville"
+        }
+    ],
+    "changelogDate": "20190405201338",
+    "entityTableName": "pays",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

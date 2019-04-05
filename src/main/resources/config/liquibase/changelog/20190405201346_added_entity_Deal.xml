@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Deal.
+    -->
+    <changeSet id="20190405201346-1" author="jhipster">
+        <createTable tableName="deal">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="ref_deal" type="varchar(10)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_deal_ref_deal" />
+            </column>
+
+            <column name="titre_deal" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="description_deal" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="prix_reduit_deal" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="prix_normal_deal" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="pc_reduction_deal" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="photo_deal_un" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="photo_deal_deux" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="photo_deal_trois" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="photo_deal_quatre" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="photo_deal_cinq" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="photo_deal_six" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="photo_deal_spet" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="photo_deal_huit" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="photo_deal_neuf" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="photo_deal_dix" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="photo_min_deal_un" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="photo_min_deal_deux" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="photo_min_deal_trois" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="photo_min_deal_quatre" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="photo_min_deal_cinq" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="photo_min_deal_six" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="photo_min_deal_spet" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="photo_min_deal_huit" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="photo_min_deal_neuf" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="photo_min_deal_dix" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="desc_point_fort_deal" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="details_offre_deal" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="conditions_deal" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="est_limite" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="est_epuise" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="date_creation_deal" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="date_cloture_deal" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="commerce_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+        <createTable tableName="deal_menu">
+            <column name="menu_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="deal_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="deal_id, menu_id" tableName="deal_menu"/>
+        
+        <createTable tableName="deal_categorie">
+            <column name="categorie_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="deal_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="deal_id, categorie_id" tableName="deal_categorie"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

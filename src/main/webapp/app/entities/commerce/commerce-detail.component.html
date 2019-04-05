@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="commerce">
+            <h2><span jhiTranslate="kouponApp.commerce.detail.title">Commerce</span> {{commerce.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="kouponApp.commerce.nomCommerce">Nom Commerce</span></dt>
+                <dd>
+                    <span>{{commerce.nomCommerce}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.commerce.nomRue">Nom Rue</span></dt>
+                <dd>
+                    <span>{{commerce.nomRue}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.commerce.codePostale">Code Postale</span></dt>
+                <dd>
+                    <span>{{commerce.codePostale}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.commerce.siteWeb">Site Web</span></dt>
+                <dd>
+                    <span>{{commerce.siteWeb}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.commerce.descCommerce">Desc Commerce</span></dt>
+                <dd>
+                    <span>{{commerce.descCommerce}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.commerce.typedecommerce">Typedecommerce</span></dt>
+                <dd>
+                    <div *ngIf="commerce.typedecommerce">
+                        <a [routerLink]="['/type-de-commerce', commerce.typedecommerce?.id, 'view']">{{commerce.typedecommerce?.nomTypeDeCommerce}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.commerce.marchand">Marchand</span></dt>
+                <dd>
+                    <div *ngIf="commerce.marchand">
+                        <a [routerLink]="['/marchand', commerce.marchand?.id, 'view']">{{commerce.marchand?.nomMarchand}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/commerce', commerce.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

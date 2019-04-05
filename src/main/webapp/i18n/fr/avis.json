@@ -1,0 +1,24 @@
+{
+    "kouponApp": {
+        "avis": {
+            "home": {
+                "title": "Avis",
+                "createLabel": "Créer un nouveau Avis",
+                "createOrEditLabel": "Créer ou éditer un Avis",
+                "search": "Recherche pour Avis"
+            },
+            "created": "Un nouveau Avis a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Avis avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Avis avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Avis {{ id }} ?"
+            },
+            "detail": {
+                "title": "Avis"
+            },
+            "textAvis": "Text Avis",
+            "derniereUtilisationCoupon": "Derniere Utilisation Coupon",
+            "deal": "Deal"
+        }
+    }
+}

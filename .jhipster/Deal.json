@@ -1,0 +1,232 @@
+{
+    "name": "Deal",
+    "fields": [
+        {
+            "fieldName": "refDeal",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength",
+                "unique"
+            ],
+            "fieldValidateRulesMaxlength": 10
+        },
+        {
+            "fieldName": "titreDeal",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "descriptionDeal",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "prixReduitDeal",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "prixNormalDeal",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "pcReductionDeal",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "photoDealUn",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "photoDealDeux",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "photoDealTrois",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "photoDealQuatre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "photoDealCinq",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "photoDealSix",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "photoDealSpet",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "photoDealHuit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "photoDealNeuf",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "photoDealDix",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "photoMinDealUn",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "photoMinDealDeux",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "photoMinDealTrois",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "photoMinDealQuatre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "photoMinDealCinq",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "photoMinDealSix",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "photoMinDealSpet",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "photoMinDealHuit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "photoMinDealNeuf",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "photoMinDealDix",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descPointFortDeal",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "detailsOffreDeal",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "conditionsDeal",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "estLimite",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "estEpuise",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "dateCreationDeal",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateClotureDeal",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "optionDeal",
+            "otherEntityRelationshipName": "deal",
+            "relationshipName": "optiondeal"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "coupon",
+            "otherEntityRelationshipName": "deal",
+            "relationshipName": "coupon"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "avis",
+            "otherEntityRelationshipName": "deal",
+            "relationshipName": "avis"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "menu",
+            "otherEntityRelationshipName": "deal",
+            "relationshipName": "menu",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "categorie",
+            "otherEntityRelationshipName": "deal",
+            "relationshipName": "categorie",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "commerce",
+            "otherEntityRelationshipName": "deal",
+            "relationshipName": "commerce",
+            "otherEntityField": "nomCommerce"
+        }
+    ],
+    "changelogDate": "20190405201346",
+    "entityTableName": "deal",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

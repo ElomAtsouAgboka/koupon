@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="marchand">
+            <h2><span jhiTranslate="kouponApp.marchand.detail.title">Marchand</span> {{marchand.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="kouponApp.marchand.nomMarchand">Nom Marchand</span></dt>
+                <dd>
+                    <span>{{marchand.nomMarchand}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.marchand.prenomMarchand">Prenom Marchand</span></dt>
+                <dd>
+                    <span>{{marchand.prenomMarchand}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.marchand.telPrincipale">Tel Principale</span></dt>
+                <dd>
+                    <span>{{marchand.telPrincipale}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.marchand.telSecondaire">Tel Secondaire</span></dt>
+                <dd>
+                    <span>{{marchand.telSecondaire}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.marchand.emailPrincipale">Email Principale</span></dt>
+                <dd>
+                    <span>{{marchand.emailPrincipale}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.marchand.emailSecondaire">Email Secondaire</span></dt>
+                <dd>
+                    <span>{{marchand.emailSecondaire}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.marchand.newsletter">Newsletter</span></dt>
+                <dd>
+                    <span>{{marchand.newsletter}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/marchand', marchand.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

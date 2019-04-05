@@ -1,0 +1,51 @@
+{
+    "name": "Coupon",
+    "fields": [
+        {
+            "fieldName": "refCoupon",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 10
+        },
+        {
+            "fieldName": "dateAchat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateUtilisation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "estCadeaux",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "deal",
+            "otherEntityRelationshipName": "coupon",
+            "relationshipName": "deal",
+            "otherEntityField": "refDeal"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "commande",
+            "otherEntityRelationshipName": "coupon",
+            "relationshipName": "commande",
+            "otherEntityField": "refCommande"
+        }
+    ],
+    "changelogDate": "20190405201348",
+    "entityTableName": "coupon",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

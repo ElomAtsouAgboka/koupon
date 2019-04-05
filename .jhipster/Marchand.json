@@ -1,0 +1,66 @@
+{
+    "name": "Marchand",
+    "fields": [
+        {
+            "fieldName": "nomMarchand",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "prenomMarchand",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "telPrincipale",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "telSecondaire",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emailPrincipale",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "emailSecondaire",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "newsletter",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "commerce",
+            "otherEntityRelationshipName": "marchand",
+            "relationshipName": "commerce"
+        }
+    ],
+    "changelogDate": "20190405201345",
+    "entityTableName": "marchand",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

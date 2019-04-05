@@ -1,0 +1,26 @@
+{
+    "kouponApp": {
+        "optionDeal": {
+            "home": {
+                "title": "Option Deals",
+                "createLabel": "Create a new Option Deal",
+                "createOrEditLabel": "Create or edit a Option Deal",
+                "search": "Search for Option Deal"
+            },
+            "created": "A new Option Deal is created with identifier {{ param }}",
+            "updated": "A Option Deal is updated with identifier {{ param }}",
+            "deleted": "A Option Deal is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Option Deal {{ id }}?"
+            },
+            "detail": {
+                "title": "Option Deal"
+            },
+            "libOptionDeal": "Lib Option Deal",
+            "prixNormalOptionDeal": "Prix Normal Option Deal",
+            "prixReductionOptionBonPlan": "Prix Reduction Option Bon Plan",
+            "pcReductionOptionBonPlan": "Pc Reduction Option Bon Plan",
+            "deal": "Deal"
+        }
+    }
+}

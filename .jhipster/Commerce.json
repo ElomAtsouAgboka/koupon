@@ -1,0 +1,62 @@
+{
+    "name": "Commerce",
+    "fields": [
+        {
+            "fieldName": "nomCommerce",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength",
+                "unique"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "nomRue",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codePostale",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "siteWeb",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descCommerce",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "deal",
+            "otherEntityRelationshipName": "commerce",
+            "relationshipName": "deal"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "typeDeCommerce",
+            "otherEntityRelationshipName": "commerce",
+            "relationshipName": "typedecommerce",
+            "otherEntityField": "nomTypeDeCommerce"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "marchand",
+            "otherEntityRelationshipName": "commerce",
+            "relationshipName": "marchand",
+            "otherEntityField": "nomMarchand"
+        }
+    ],
+    "changelogDate": "20190405201344",
+    "entityTableName": "commerce",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

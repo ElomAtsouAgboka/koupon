@@ -1,0 +1,32 @@
+{
+    "name": "TypeDeCommerce",
+    "fields": [
+        {
+            "fieldName": "nomTypeDeCommerce",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength",
+                "unique"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "commerce",
+            "otherEntityRelationshipName": "typedecommerce",
+            "relationshipName": "commerce"
+        }
+    ],
+    "changelogDate": "20190405201343",
+    "entityTableName": "type_de_commerce",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

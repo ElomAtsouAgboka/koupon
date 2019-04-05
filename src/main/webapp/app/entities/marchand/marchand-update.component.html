@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-marchand-heading" jhiTranslate="kouponApp.marchand.home.createOrEditLabel">Create or edit a Marchand</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!marchand.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="marchand.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.marchand.nomMarchand" for="field_nomMarchand">Nom Marchand</label>
+                    <input type="text" class="form-control" name="nomMarchand" id="field_nomMarchand"
+                        [(ngModel)]="marchand.nomMarchand" required maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.nomMarchand?.dirty && editForm.controls.nomMarchand?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nomMarchand?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nomMarchand?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.marchand.prenomMarchand" for="field_prenomMarchand">Prenom Marchand</label>
+                    <input type="text" class="form-control" name="prenomMarchand" id="field_prenomMarchand"
+                        [(ngModel)]="marchand.prenomMarchand" required maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.prenomMarchand?.dirty && editForm.controls.prenomMarchand?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.prenomMarchand?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.prenomMarchand?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.marchand.telPrincipale" for="field_telPrincipale">Tel Principale</label>
+                    <input type="text" class="form-control" name="telPrincipale" id="field_telPrincipale"
+                        [(ngModel)]="marchand.telPrincipale" required/>
+                    <div [hidden]="!(editForm.controls.telPrincipale?.dirty && editForm.controls.telPrincipale?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.telPrincipale?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.marchand.telSecondaire" for="field_telSecondaire">Tel Secondaire</label>
+                    <input type="text" class="form-control" name="telSecondaire" id="field_telSecondaire"
+                        [(ngModel)]="marchand.telSecondaire" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.marchand.emailPrincipale" for="field_emailPrincipale">Email Principale</label>
+                    <input type="text" class="form-control" name="emailPrincipale" id="field_emailPrincipale"
+                        [(ngModel)]="marchand.emailPrincipale" required/>
+                    <div [hidden]="!(editForm.controls.emailPrincipale?.dirty && editForm.controls.emailPrincipale?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.emailPrincipale?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.marchand.emailSecondaire" for="field_emailSecondaire">Email Secondaire</label>
+                    <input type="text" class="form-control" name="emailSecondaire" id="field_emailSecondaire"
+                        [(ngModel)]="marchand.emailSecondaire" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.marchand.newsletter" for="field_newsletter">Newsletter</label>
+                    <input type="checkbox" class="form-control" name="newsletter" id="field_newsletter"
+                        [(ngModel)]="marchand.newsletter" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

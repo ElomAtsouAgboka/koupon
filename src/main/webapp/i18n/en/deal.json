@@ -1,0 +1,60 @@
+{
+    "kouponApp": {
+        "deal": {
+            "home": {
+                "title": "Deals",
+                "createLabel": "Create a new Deal",
+                "createOrEditLabel": "Create or edit a Deal",
+                "search": "Search for Deal"
+            },
+            "created": "A new Deal is created with identifier {{ param }}",
+            "updated": "A Deal is updated with identifier {{ param }}",
+            "deleted": "A Deal is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Deal {{ id }}?"
+            },
+            "detail": {
+                "title": "Deal"
+            },
+            "refDeal": "Ref Deal",
+            "titreDeal": "Titre Deal",
+            "descriptionDeal": "Description Deal",
+            "prixReduitDeal": "Prix Reduit Deal",
+            "prixNormalDeal": "Prix Normal Deal",
+            "pcReductionDeal": "Pc Reduction Deal",
+            "photoDealUn": "Photo Deal Un",
+            "photoDealDeux": "Photo Deal Deux",
+            "photoDealTrois": "Photo Deal Trois",
+            "photoDealQuatre": "Photo Deal Quatre",
+            "photoDealCinq": "Photo Deal Cinq",
+            "photoDealSix": "Photo Deal Six",
+            "photoDealSpet": "Photo Deal Spet",
+            "photoDealHuit": "Photo Deal Huit",
+            "photoDealNeuf": "Photo Deal Neuf",
+            "photoDealDix": "Photo Deal Dix",
+            "photoMinDealUn": "Photo Min Deal Un",
+            "photoMinDealDeux": "Photo Min Deal Deux",
+            "photoMinDealTrois": "Photo Min Deal Trois",
+            "photoMinDealQuatre": "Photo Min Deal Quatre",
+            "photoMinDealCinq": "Photo Min Deal Cinq",
+            "photoMinDealSix": "Photo Min Deal Six",
+            "photoMinDealSpet": "Photo Min Deal Spet",
+            "photoMinDealHuit": "Photo Min Deal Huit",
+            "photoMinDealNeuf": "Photo Min Deal Neuf",
+            "photoMinDealDix": "Photo Min Deal Dix",
+            "descPointFortDeal": "Desc Point Fort Deal",
+            "detailsOffreDeal": "Details Offre Deal",
+            "conditionsDeal": "Conditions Deal",
+            "estLimite": "Est Limite",
+            "estEpuise": "Est Epuise",
+            "dateCreationDeal": "Date Creation Deal",
+            "dateClotureDeal": "Date Cloture Deal",
+            "optiondeal": "Optiondeal",
+            "coupon": "Coupon",
+            "avis": "Avis",
+            "menu": "Menu",
+            "categorie": "Categorie",
+            "commerce": "Commerce"
+        }
+    }
+}

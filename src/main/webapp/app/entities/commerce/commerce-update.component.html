@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-commerce-heading" jhiTranslate="kouponApp.commerce.home.createOrEditLabel">Create or edit a Commerce</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!commerce.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="commerce.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.commerce.nomCommerce" for="field_nomCommerce">Nom Commerce</label>
+                    <input type="text" class="form-control" name="nomCommerce" id="field_nomCommerce"
+                        [(ngModel)]="commerce.nomCommerce" required maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.nomCommerce?.dirty && editForm.controls.nomCommerce?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nomCommerce?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nomCommerce?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.commerce.nomRue" for="field_nomRue">Nom Rue</label>
+                    <input type="text" class="form-control" name="nomRue" id="field_nomRue"
+                        [(ngModel)]="commerce.nomRue" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.commerce.codePostale" for="field_codePostale">Code Postale</label>
+                    <input type="text" class="form-control" name="codePostale" id="field_codePostale"
+                        [(ngModel)]="commerce.codePostale" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.commerce.siteWeb" for="field_siteWeb">Site Web</label>
+                    <input type="text" class="form-control" name="siteWeb" id="field_siteWeb"
+                        [(ngModel)]="commerce.siteWeb" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.commerce.descCommerce" for="field_descCommerce">Desc Commerce</label>
+                    <input type="text" class="form-control" name="descCommerce" id="field_descCommerce"
+                        [(ngModel)]="commerce.descCommerce" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.commerce.typedecommerce" for="field_typedecommerce">Typedecommerce</label>
+                    <select class="form-control" id="field_typedecommerce" name="typedecommerce" [(ngModel)]="commerce.typedecommerce" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeDeCommerceOption.id === commerce.typedecommerce?.id ? commerce.typedecommerce : typeDeCommerceOption" *ngFor="let typeDeCommerceOption of typedecommerces; trackBy: trackTypeDeCommerceById">{{typeDeCommerceOption.nomTypeDeCommerce}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="kouponApp.commerce.marchand" for="field_marchand">Marchand</label>
+                    <select class="form-control" id="field_marchand" name="marchand" [(ngModel)]="commerce.marchand" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="marchandOption.id === commerce.marchand?.id ? commerce.marchand : marchandOption" *ngFor="let marchandOption of marchands; trackBy: trackMarchandById">{{marchandOption.nomMarchand}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

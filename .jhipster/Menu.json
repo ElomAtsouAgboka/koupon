@@ -1,0 +1,51 @@
+{
+    "name": "Menu",
+    "fields": [
+        {
+            "fieldName": "menuItem",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength",
+                "unique"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "menuItemImg",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "menu",
+            "otherEntityRelationshipName": "menuParent",
+            "relationshipName": "menu"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "menu",
+            "otherEntityRelationshipName": "menu",
+            "relationshipName": "menuParent",
+            "otherEntityField": "menuItem"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "deal",
+            "otherEntityRelationshipName": "menu",
+            "relationshipName": "deal",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190405201342",
+    "entityTableName": "menu",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

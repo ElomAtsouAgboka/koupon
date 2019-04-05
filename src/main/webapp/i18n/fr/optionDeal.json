@@ -1,0 +1,26 @@
+{
+    "kouponApp": {
+        "optionDeal": {
+            "home": {
+                "title": "OptionDeals",
+                "createLabel": "Créer un nouveau Option Deal",
+                "createOrEditLabel": "Créer ou éditer un Option Deal",
+                "search": "Recherche pour Option Deal"
+            },
+            "created": "Un nouveau Option Deal a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Option Deal avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Option Deal avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Option Deal {{ id }} ?"
+            },
+            "detail": {
+                "title": "Option Deal"
+            },
+            "libOptionDeal": "Lib Option Deal",
+            "prixNormalOptionDeal": "Prix Normal Option Deal",
+            "prixReductionOptionBonPlan": "Prix Reduction Option Bon Plan",
+            "pcReductionOptionBonPlan": "Pc Reduction Option Bon Plan",
+            "deal": "Deal"
+        }
+    }
+}

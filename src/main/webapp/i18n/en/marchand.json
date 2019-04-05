@@ -1,0 +1,29 @@
+{
+    "kouponApp": {
+        "marchand": {
+            "home": {
+                "title": "Marchands",
+                "createLabel": "Create a new Marchand",
+                "createOrEditLabel": "Create or edit a Marchand",
+                "search": "Search for Marchand"
+            },
+            "created": "A new Marchand is created with identifier {{ param }}",
+            "updated": "A Marchand is updated with identifier {{ param }}",
+            "deleted": "A Marchand is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Marchand {{ id }}?"
+            },
+            "detail": {
+                "title": "Marchand"
+            },
+            "nomMarchand": "Nom Marchand",
+            "prenomMarchand": "Prenom Marchand",
+            "telPrincipale": "Tel Principale",
+            "telSecondaire": "Tel Secondaire",
+            "emailPrincipale": "Email Principale",
+            "emailSecondaire": "Email Secondaire",
+            "newsletter": "Newsletter",
+            "commerce": "Commerce"
+        }
+    }
+}

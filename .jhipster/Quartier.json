@@ -1,0 +1,33 @@
+{
+    "name": "Quartier",
+    "fields": [
+        {
+            "fieldName": "nomQuartier",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength",
+                "unique"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ville",
+            "otherEntityRelationshipName": "quartier",
+            "relationshipName": "ville",
+            "otherEntityField": "nomVille"
+        }
+    ],
+    "changelogDate": "20190405201340",
+    "entityTableName": "quartier",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

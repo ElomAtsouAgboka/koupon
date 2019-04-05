@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="avis">
+            <h2><span jhiTranslate="kouponApp.avis.detail.title">Avis</span> {{avis.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="kouponApp.avis.textAvis">Text Avis</span></dt>
+                <dd>
+                    <span>{{avis.textAvis}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.avis.derniereUtilisationCoupon">Derniere Utilisation Coupon</span></dt>
+                <dd>
+                    <span>{{avis.derniereUtilisationCoupon}}</span>
+                </dd>
+                <dt><span jhiTranslate="kouponApp.avis.deal">Deal</span></dt>
+                <dd>
+                    <div *ngIf="avis.deal">
+                        <a [routerLink]="['/deal', avis.deal?.id, 'view']">{{avis.deal?.refDeal}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/avis', avis.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

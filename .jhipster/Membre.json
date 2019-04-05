@@ -1,0 +1,61 @@
+{
+    "name": "Membre",
+    "fields": [
+        {
+            "fieldName": "loginMember",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength",
+                "unique"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "nomMembre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "prenomMembre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "dateDeNaissance",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "emailMembre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "souscrireMailPerso",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "commande",
+            "otherEntityRelationshipName": "membre",
+            "relationshipName": "commande"
+        }
+    ],
+    "changelogDate": "20190405201350",
+    "entityTableName": "membre",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,162 @@
+entity Pays {
+	nomPays String required maxlength(50) unique
+}
+
+entity Ville {
+	nomVille String required maxlength(50) unique
+}
+
+entity Quartier {
+	nomQuartier String required maxlength(50) unique
+}
+
+entity Categorie {
+	nomCategorie String required maxlength(50) unique
+}
+
+entity Menu {
+	menuItem String required maxlength(50) unique,
+    menuItemImg String
+}
+
+
+entity TypeDeCommerce {
+	nomTypeDeCommerce String required maxlength(50) unique
+}
+
+entity Commerce {
+	nomCommerce String required maxlength(100) unique,
+    nomRue String,
+    codePostale String,
+    siteWeb String,
+	descCommerce String
+}
+
+
+entity Marchand {
+    nomMarchand String required maxlength(50),
+    prenomMarchand String required maxlength(50),
+    telPrincipale String required,
+    telSecondaire String,
+    emailPrincipale String required,
+    emailSecondaire String,
+    newsletter Boolean
+}
+
+entity Deal {
+    refDeal String required maxlength(10) unique,
+	titreDeal String required maxlength(100),
+	descriptionDeal String required maxlength(255),
+	prixReduitDeal String required,
+	prixNormalDeal Integer required,
+	pcReductionDeal Integer required,
+	photoDealUn String required,
+	photoDealDeux String required,
+	photoDealTrois String required,
+	photoDealQuatre String,
+	photoDealCinq String,
+	photoDealSix String,
+	photoDealSpet String,
+	photoDealHuit String,
+	photoDealNeuf String,
+	photoDealDix String,
+	photoMinDealUn String required,
+	photoMinDealDeux String required,
+	photoMinDealTrois String required,
+	photoMinDealQuatre String,
+	photoMinDealCinq String,
+	photoMinDealSix String,
+	photoMinDealSpet String,
+	photoMinDealHuit String,
+	photoMinDealNeuf String,
+	photoMinDealDix String,
+	descPointFortDeal String,
+	detailsOffreDeal String,
+	conditionsDeal String,
+	estLimite Boolean,
+	estEpuise Boolean,
+    dateCreationDeal LocalDate,
+    dateClotureDeal LocalDate
+}
+
+
+entity OptionDeal {
+	libOptionDeal String,
+	prixNormalOptionDeal Integer,
+	prixReductionOptionBonPlan Integer,
+	pcReductionOptionBonPlan Integer
+}
+
+entity Coupon {
+    refCoupon String required maxlength(10),
+    dateAchat String,
+    dateUtilisation String,
+    estCadeaux Boolean
+}
+
+entity Avis {
+    textAvis String required maxlength(255),
+    derniereUtilisationCoupon Integer
+}
+
+
+entity Membre {
+	loginMember String required maxlength(50) unique,
+	nomMembre String required maxlength(50),
+	prenomMembre String maxlength(50),
+	dateDeNaissance LocalDate,
+	emailMembre String,
+	souscrireMailPerso Boolean
+}
+
+entity Commande {
+	refCommande String required maxlength(10) unique,
+	dateCommande LocalDate
+}
+
+
+/**
+ * One to many relationship.
+ */
+relationship OneToMany {
+	Pays{ville} to Ville{pays(nomPays)},
+
+	Ville{quartier} to Quartier{ville(nomVille)},
+
+	Categorie{categorie} to Categorie{categorieParent(nomCategorie)},
+
+	Menu{menu} to Menu{menuParent(menuItem)},
+
+	TypeDeCommerce{commerce} to Commerce{typedecommerce(nomTypeDeCommerce)},
+
+	Marchand{commerce} to Commerce{marchand(nomMarchand)},
+
+    Commerce{deal} to  Deal{commerce(nomCommerce)},
+
+    Deal{optiondeal} to OptionDeal{deal(refDeal)},
+
+    Deal{coupon} to Coupon{deal(refDeal)},
+
+    Deal{avis} to Avis{deal(refDeal)},
+
+	Membre{commande} to Commande{membre(loginMember)},
+
+	Commande{coupon} to Coupon{commande(refCommande)}
+
+}
+
+relationship ManyToMany {
+	Deal{menu} to Menu{deal}
+}
+
+relationship ManyToMany {
+	Deal{categorie} to Categorie{deal}
+}
+
+// Set pagination options
+paginate Commerce, Marchand, Deal, Coupon with infinite-scroll
+paginate Pays, Ville, Quartier, Categorie, Menu, TypeDeCommerce, Membre, Avis, Commande with pagination
+
+
+// Set service options to all except few
+service all with serviceImpl except Pays, Ville, Quartier, Categorie, Menu, TypeDeCommerce

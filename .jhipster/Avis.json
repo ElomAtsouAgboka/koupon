@@ -1,0 +1,36 @@
+{
+    "name": "Avis",
+    "fields": [
+        {
+            "fieldName": "textAvis",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "derniereUtilisationCoupon",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "deal",
+            "otherEntityRelationshipName": "avis",
+            "relationshipName": "deal",
+            "otherEntityField": "refDeal"
+        }
+    ],
+    "changelogDate": "20190405201349",
+    "entityTableName": "avis",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
